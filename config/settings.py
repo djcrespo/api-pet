@@ -14,6 +14,7 @@ from pathlib import Path
 
 from .core.applist import *
 from .core.databases import *
+from .core.rest_framework import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -63,6 +64,22 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+# Django Celery
+# https://github.com/celery/celery/issues/4178
+
+CELERY_BROKER_URL = os.environ.get("CLOUDAMQP_URL", "")
+CELERY_RESULT_BACKEND = "django-db"
+CELERY_CACHE_BACKEND = "django-cache"
+CELERY_IMPORTS = (
+)
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_UTC_ENABLED = True
+CELERY_TIMEZONE = "UTC"
+CELERYBEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+CELERYBEAT_SCHEDULE = {}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

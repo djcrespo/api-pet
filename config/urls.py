@@ -28,18 +28,18 @@ from rest_framework_simplejwt.views import (
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-admin.site.site_header = "BASE Admin"
-admin.site.site_title = "BASE Admin Portal"
-admin.site.index_title = "Welcome to BASE Administration Portal"
+admin.site.site_header = "PET API Admin"
+admin.site.site_title = "Admin Portal"
+admin.site.index_title = "Welcome to PET API Administration Portal"
 admin.site.site_url = "/api/v1/"
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="BASE API",
+        title="PET API",
         default_version='v1.0.0',
-        description="API REST para el sistema de BASE",
+        description="API REST para el proyecto de IOE",
         terms_of_service="",
-        contact=openapi.Contact(email="admin@gmail.com"),
+        contact=openapi.Contact(email="dj.crespo.castilla@gmail.com"),
         license=openapi.License(name="MIT License"),
     ),
     public=True,

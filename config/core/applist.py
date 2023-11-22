@@ -23,6 +23,7 @@ THIRD_PART_APPS = [
 LOCAL_APPS = [
     # local apps
     'apps.accounts',
+    'apps.modules'
 ]
 
 INSTALLED_APPS = BEFORE_DJANGO_APPS + DJANGO_APPS + THIRD_PART_APPS + LOCAL_APPS
